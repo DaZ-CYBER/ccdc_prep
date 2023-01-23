@@ -1,1 +1,8 @@
 
+Linux Admin Notes
+
+Kernel
+
+- Boot messages are stored in /var/log/dmesg
+  - Possible bootup malware can be detected here
+  - Search through this frequently to detect any issues
