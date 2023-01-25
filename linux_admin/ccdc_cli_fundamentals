@@ -1,0 +1,55 @@
+
+Linux Admin Notes
+ 
+User Permissions
+
+CHMOD - File/Directory Permissions
+
+  - "chmod" allows us to change the permissions of the file or directory that we tell it to do
+  - There are three user types that correspond with the permission parameters.
+    - Owner       : Parameter 1
+    - Group       : Parameter 2
+    - Other Users : Parameter 3
+    
+    - # chmod 0(Owner)0(Group)0(Other user)
+
+    - 0: None               - Not able to read, write, or execute the file/directory.
+    - 1: Write              - User is able to write on the file/directory.
+    - 2: Execute            - User is able to execute the file/directory.
+    - 3: Write/Execute      - User is able to write on and execute the file/directory.
+    - 4: Read               - User is able to read the file/directory.
+    - 5: Read/Write         - User is able to read and write on the file/directory.
+    - 6: Read/Execute       - User is able to read and execute the file/directory.
+    - 7: Read/Write/Execute - User has all permissions and can read/write/execute the file/directory.
+
+    Example 1: # chmod 777 file.txt
+    - This command will give the ability to read, write, and execute to the owner, group, and any other users.
+    
+    Example 2: # chmod 542 file.txt
+    - This command will do the following:
+      - Owner will have the permission to only read/write the file.
+      - Groups will have the permission to only read the file.
+      - Other users can only execute the file.
+    
+
+CHOWN - File/Directory Owner
+
+  - chown allows us to change the owner of the file/directory.
+    - chown is relatively simple but can also be used to change the group the file was created in.
+    
+    # chown root file.txt
+    - Changes the owner of file.txt to root
+    
+    - As explained previously, you can also change the group of the file by using a colon to separate the owner and the group.
+    # chown root:root file.txt
+    - This will change the owner of the file to root and also change the group of the file to the root group.
+    
+    - It's important to remember the users and groups when you're assigning file owners.
+      - Users and their passwords are stored in /etc/password
+      - Groups are stored in /etc/group
+      
+Kernel
+
+- Boot messages are stored in /var/log/dmesg
+  - Possible bootup malware can be detected here
+  - Search through this frequently to detect any issues
