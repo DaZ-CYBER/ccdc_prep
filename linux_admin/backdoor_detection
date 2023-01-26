@@ -1,0 +1,18 @@
+Backdoor Detection
+
+- Backdoors are files, scripts, programs, or codes that run automatically to allow an attacker to gain access to a machine multiple times. This helps the attacker get a quick way back into the machine.
+- These backdoors can be extremely dangerous as they can allow further exploitation into a machine or server after the initial attack.
+
+SSH_KEYS
+
+- Typically, attackers who have gained access to a system will leave their SSH keys on the system for further use.
+  - This is to quickly gain access to a shell through SSH.
+  
+- These keys are stored in ~/.ssh/authorized_keys
+  - (This may not always be the folder, check around the /.ssh folder to find any SSH keys.)
+  
+- Any key in this file that does not have the end parameter or end name of your own machine could be a backdoor.
+  - For CCDC, check to make sure whether or not this is one of the flag generators that the host of the competition needs to give you points.
+    - If not, then REMOVE THE KEY. (There is no way to automate this, it must be done manually.)
+
+- Regularly check these folders to see if any SSH keys or backdoors were installed. This can help prevent further exploits if the red team has access to your system.
