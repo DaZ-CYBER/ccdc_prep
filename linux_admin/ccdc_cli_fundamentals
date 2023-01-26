@@ -48,8 +48,17 @@ CHOWN - File/Directory Owner
       - Users and their passwords are stored in /etc/password
       - Groups are stored in /etc/group
       
-Kernel
+CURL/GIT
 
-- Boot messages are stored in /var/log/dmesg
-  - Possible bootup malware can be detected here
-  - Search through this frequently to detect any issues
+ - curl allows us to direct data from a server or website.
+  - Supported protocols are HTTP, FTP, IMAP, POP3, SCP, SFTP, SMTP, TFTP, TELNET, LDAP, or FILE.
+  
+  - # curl http://google.com
+  - (This can also be used to direct raw github user content back to us.
+  
+ - git allows us to perform actions within github architecture. We can do the following:
+  - Create repositories in either existing hierarchical repositories or completely empty ones.
+  - Edit repositories that we currently have.
+  - Clone and use repositories on our machine from other creators.
+  
+  - # git clone https://github.com/carlospolop/PEASS-ng
