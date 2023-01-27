@@ -3,3 +3,8 @@ Crontab
 CRON is a built-in Linux system that allows for the machine to automate jobs to perform minor system processes much easier.
 - These jobs are called cronjobs.
   - Cronjobs are allowed to be scheduled to perform at a certain time.
+
+NETSTAT
+
+- Netstat is a command-line function that can be used to look up all ports and services connected to the system
+  - Aside from Cron, this 
