@@ -62,3 +62,17 @@ CURL/GIT
   - Clone and use repositories on our machine from other creators.
   
   - # git clone https://github.com/carlospolop/PEASS-ng
+  
+SUDO
+
+ - Sudo is a privilege parameter that allows the user on the CLI to use root-level permissions(root being the highest privilege).
+ 
+ - Basic users will have privileges that differ from sudo, not allowing them to access root-priority level folders and files.
+ - Privilege IDs are generally displayed in the following formats:
+  
+  # id
+  - Example 1: uid=1000(daz) gid=1000(daz) groups=1000(daz)
+  - Example 2: uid=0(root) gid=0(root) groups=0(root)
+  
+  - To summarize, ID numbers that have a parameter of above 999 mean they are regular users.
+   - Our root user has an ID number of 0, granting them all root-level privileges.
