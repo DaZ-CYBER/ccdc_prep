@@ -7,4 +7,9 @@ CRON is a built-in Linux system that allows for the machine to automate jobs to 
 NETSTAT
 
 - Netstat is a command-line function that can be used to look up all ports and services connected to the system
-  - Aside from Cron, this 
+  - Aside from Cron, this can also be used to locate suspicious connections.
+  
+  - # netstat -a
+    - # netstat --help | gives a very in depth look at each flag and what it does.
+
+
