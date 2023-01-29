@@ -12,4 +12,15 @@ NETSTAT
   - # netstat -a
     - # netstat --help | gives a very in depth look at each flag and what it does.
 
+CRONJOBS
 
+- As explained previously, cronjobs are scheduled jobs. They are located within the /var/spool/cron/crontabs directory.
+
+- # crontab -l
+  - This command will output any cronjobs on the user's account.
+  - This command can be used on regular user's accounts, however the crontabs folder should only be accessible to root users.
+  
+- Attackers have the ability to place a backdoor into these jobs, due to the fact that they execute their files at a specific time.
+- Examining these files for any backdoor commands(such as netcat), can help identify a malicious cronjob from a regular one.
+
+- # crontab -r (user's cronjob)
