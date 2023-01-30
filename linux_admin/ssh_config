@@ -6,10 +6,10 @@ SSH CONFIGURATION
 - The SSH configuration file is normally under ~/.ssh or /etc/ssh. An example of the file format is as follows.
 
 Host github.com
-        User git
-        Hostname github.com
-        PreferredAuthentications publickey
-        IdentityFile /home/user/.ssh/id_rsa
+User git
+Hostname github.com
+PreferredAuthentications publickey
+IdentityFile /home/user/.ssh/id_rsa
         
 # github account
 Host github.com
