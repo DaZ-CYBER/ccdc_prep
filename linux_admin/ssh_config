@@ -1,0 +1,4 @@
+SSH CONFIGURATION
+
+- SSH is one of the most important configurations in Linux to secure.
+  - A unproperly configured SSH server can allow attackers to plant backdoors or gain remote shells into your server.
