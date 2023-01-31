@@ -31,3 +31,4 @@ CRONTABS
 - As explained prior, cronjobs are scheduled jobs to perform system processes that build the foundation for a well-working Linux server.
 
 - Backdoors in cronjobs function relatively similarly to other backdoors in other exploits.
+- Regularly check crontabs jobs in each user account to ensure that there aren't any backdoors installed within the file.
