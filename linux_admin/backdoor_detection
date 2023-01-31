@@ -26,4 +26,8 @@ SSH_KEYS
 
 - The skeleton file of .bashrc can be found at /etc/skel
 
+CRONTABS
 
+- As explained prior, cronjobs are scheduled jobs to perform system processes that build the foundation for a well-working Linux server.
+
+- Backdoors in cronjobs function relatively similarly to other backdoors in other exploits.
