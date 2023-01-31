@@ -2,6 +2,15 @@ SSH CONFIGURATION
 
 - SSH is one of the most important configurations in Linux to secure.
   - A unproperly configured SSH server can allow attackers to plant backdoors or gain remote shells into your server.
+- To check whether or not your machine has OpenSSH installed, you can type the following into most Linux distro command lines.
+
+  - # apt search openssh-client
+ 
+ - The machine will tell you whether or not it is installed, and if it isn't, perform the following
+  
+  - # apt-get update
+  - # apt update
+  - # apt-get install openssh-server
 
 - The SSH configuration file is normally under ~/.ssh or /etc/ssh. An example of the file format is as follows.
 
