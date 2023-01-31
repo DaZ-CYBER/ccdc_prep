@@ -135,3 +135,12 @@ PrintMotd no
 - ENSURE that #passwordauthentication is checked.
 - Do not allow an infinite number of attempts to log into the ssh server.
   - This will make your ssh server subject to brute force attempts.
+
+SUDOERS CHECK
+
+- If any of the red team/attackers gain access to an SSH shell, there are still opportunities to ensure that they cannot interfere with the machine.
+  - Ensure that sudoers is locked behind sudo, and should be only accessible as the root user.
+  - The ONLY way to gain access to a root-level shell should be with the command:
+    - # su
+  - This will require the root password, which should already be configured to be extremely difficult to crack.
+  
