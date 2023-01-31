@@ -24,3 +24,18 @@ CRONJOBS
 - Examining these files for any backdoor commands(such as netcat), can help identify a malicious cronjob from a regular one.
 
 - # crontab -r (user's cronjob)
+
+SETTING UP AN EXAMPLE CRONJOB
+
+Basic Elements to setting up a Cronjob:
+
+- # a b c d e /directory/command output
+  - a = Minute
+  - b = Hour
+  - c = Day
+  - d = Month
+  - e = Day of the week
+  
+- Type in the following to edit crontab:
+  - # crontab -e
+- It should prompt you to select an editor. I am most familiar with vim however nano is an easy substitution.
