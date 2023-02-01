@@ -1,0 +1,10 @@
+
+KIBANA INSTALLATION
+
+- This was performed on a Fedora-34 VM (which is one of the machines we will have during the competition)
+
+- # curl -O https://artifacts.elastic.co/downloads/kibana/kibana-8.6.1-linux-x86_64.tar.gz
+- # mkdir kibana
+- # mv kibana-8.6.1-linux-x86_64.tar.gz ~/kibana (or wherever the kibana folder was created in)
+- # tar -xzf kibana-8.6.1-linux-x86_64.tar.gz
+- # cd kibana-8.6.1
