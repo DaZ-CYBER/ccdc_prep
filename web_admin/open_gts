@@ -1,0 +1,192 @@
+
+What is OpenGTS?
+
+- OpenGTS is an open-source database that manages web-based GPS tracking of products.
+
+-- THE FOLLOWING IS A RUNBOOK FROM THE PREVIOUS WEB ADMIN --
+
+Change & REMEMBER TO UNCOMMENT(Remove #):
+
+Uncomment Logging to enable
+
+Check DB Creds (Default - Don’t change until told!):
+db.sql.user=gts
+db.sql.password=opengts
+
+Uncomment Acct updates:
+# --- include "lastUpdateAccount"/"lastUpdateUser" fields in selected tables
+#db.includeLastUpdateAccount=false
+#db.includeLastUpdateUser=false
+
+Change lines to bad data protections:
+# --- Past event date handling
+Device.pastDate.action=ignore
+Device.pastDate.maximumSec=180
+
+# --- Future event date handling
+Device.futureDate.action=ignore
+Device.futureDate.maximumSec=180
+
+# --- Invalid/"Ludicrous" speed handling
+Device.invalidSpeed.action=ignore
+Device.invalidSpeed.maximumKPH=120
+
+# --- Check last odometer
+Device.checkLastOdometer=true
+
+Tell someone if there is data in: dcservers.xml Section (right above private.xml: Domain attributes)
+
+Prevent Brute-force:
+# --- private.xml: GeneralPasswordHandler
+#Domain.PasswordHandler.failedLoginMaximumAttempts=3
+#Domain.PasswordHandler.failedLoginAttemptInterval=30
+#Domain.PasswordHandler.failedLoginSuspendInterval=3600
+Change if this ends up logging us out or fails status check
+
+Disable Sysadmin info leak
+
+# --- SysAdmin
+#Domain.WebPages.SysAdminInfo=false
+
+# --- private.xml: Login
+#Domain.Properties.login.showPoweredByOpenGTS=false
+#Domain.Properties.login.showGTSVersion=false
+
+User Protections:
+
+# --- private.xml: UserInfo Properties
+Domain.Properties.userInfo.allowDuplicateContactEmail=true
+#Domain.Properties.userInfo.showAccessControlList=true
+#Domain.Properties.userInfo.showPreferredDeviceID=true
+#Domain.Properties.userInfo.showAddressFields=false
+#Domain.Properties.userInfo.showOfficeLocation=false
+#Domain.Properties.userInfo.showPassword=false
+#Domain.Properties.userInfo.authorizedGroupCount=1
+#Domain.Properties.userInfo.showNotes=false
+
+Device Protections:
+# --- private.xml: DeviceInfo Properties
+#Domain.Properties.deviceInfo.allowNewDevice=true
+#Domain.Properties.deviceInfo.allowDeleteDevice=true
+#Domain.Properties.deviceInfo.allowEditServerID=false
+#Domain.Properties.deviceInfo.allowEditFirmwareVersion=false 
+#Domain.Properties.deviceInfo.showDataKey=false
+#Domain.Properties.deviceInfo.showDcsPropertiesID=false
+#Domain.Properties.deviceInfo.showDcsConfigString=false
+#Domain.Properties.deviceInfo.showStaticTcpSessionID=false ///
+#Domain.Properties.deviceInfo.showPreferredGroupID=false
+#Domain.Properties.deviceInfo.showAssignedUserID=false
+
+Admin Protections:
+# --- private.xml: SystemAdminAccounts Properties
+#Domain.Properties.sysAdminAccounts.allowDeleteAccount=false
+#Domain.Properties.sysAdminAccounts.showPasswords=false
+#Domain.Properties.sysAdminAccounts.showAccountManager=true
+#Domain.Properties.sysAdminAccounts.showRetainEvents=false
+#Domain.Properties.sysAdminAccounts.showAllowWebService=true
+#Domain.Properties.sysAdminAccounts.showEnableDriverELogs=false
+#Domain.Properties.sysAdminAccounts.showAutoAddDevices=false
+#Domain.Properties.sysAdminAccounts.showDataPushURL=false
+#Domain.Properties.sysAdminAccounts.showNotes=true
+#Domain.Properties.sysAdminAccounts.accountProperties=false
+
+# --- private.xml: SystemAdminAccounts login/return Properties
+#Domain.Properties.sysAccountsLogin.enableLogin=true
+#Domain.Properties.sysAccountsLogin.enableReturn=true
+#Domain.Properties.sysAccountsLogin.enableReturn.timeout=600
+
+
+
+
+# - table.admin reports
+#Domain.Reports.UserAdmin=false
+#Domain.Reports.DeviceAdmin=false
+#Domain.Reports.DeviceGroupAdmin=false
+#Domain.Reports.DriverAdmin=false
+#Domain.Reports.GeozoneAdmin=false
+
+# - SysAdmin summary reports
+#Domain.Reports.AccountLastLogin=false
+#Domain.Reports.UnassignedDevices=false
+
+
+
+Final: competition specific
+# -----------------------------------------------------------------------------
+
+# --- Track BaseURI
+# --- (overridable 'Track' servlet base URL) - Not sure if we want this
+#track.baseURI=./Track
+
+# --- offline text (feature may not be available in all releases)
+#track.offlineFile=/tmp/.gtsOffline
+
+# --- enable/disable web-service (feature may not be available in all releases)
+#track.enableService=true
+
+# --- web-service properties (feature may not be available in all releases) - Can we use auth key??
+
+#track.service.customCommandHandler=
+#track.service.authKey=
+#track.service.AccessControlAllowOrigin=*
+# --- web-service enabled commands: false(not enabled), true(conditional), always(unconditional)
+#track.service.commandEnabled.commands=true
+#track.service.commandEnabled.dbdel=true
+#track.service.commandEnabled.dbget=true
+#track.service.commandEnabled.dbput=true
+#track.service.commandEnabled.dbcreate=true
+#track.service.commandEnabled.dbschema=true
+#track.service.commandEnabled.mapdata=true
+#track.service.commandEnabled.eventdata=true
+#track.service.commandEnabled.messages=true
+#track.service.commandEnabled.propget=true
+#track.service.commandEnabled.pushpins=true
+#track.service.commandEnabled.reportlist=true
+#track.service.commandEnabled.report=always
+#track.service.commandEnabled.version=true
+#track.service.commandEnabled.devcmd=false - CMD Execution!!
+#track.service.commandEnabled.statuscodes=true
+#track.service.commandEnabled.custom=false - CMD Execution!!
+
+# --- GTSRequest URL (feature may not be available in all releases) - CHECK
+#GTSRequest.url=http://localhost:8080/track/Service
+
+# -----------------------------------------------------------------------------
+# --- ATS ELog/HOS - MAKE CHANGES!!!!
+May access it through a different port
+# --- local ELog processing service
+#ATSELog.localBindHost=localhost
+#ATSELog.localBindPort=35020
+#ATSELog.threadPoolSize=20
+#ATSELog.preProcessDelayMS=1500
+
+# --- login
+#ATSELog.loginURL=http://HOST
+#ATSELog.loginURL.DEV=http://HOST
+#ATSELog.serviceURL=https://HOST/atsrs/Svc1.svc
+#ATSELog.serviceURL.DEV=https://HOST/atsrs/Svc1.svc
+#ATSELog.partnerID=
+#ATSELog.loginID=
+#ATSELog.password=
+#ATSELog.applicationID=
+#ATSELog.loginTokenSeed=
+
+We want to audit
+# -----------------------------------------------------------------------------
+# --- SystemAudit (may not be supported in this release)
+
+# --- save successful logins
+#audit.saveSuccessfulLogin=true
+
+# --- save failed logins (see also "Account.failedLogin*")
+#audit.saveFailedLogin=true
+
+# --- save rule trigger notifications
+#audit.saveRuleNotification=true
+
+# --- save report email
+#audit.saveReportEmail=true
+
+# --- save device commands
+#audit.saveDeviceCommand=true
+
