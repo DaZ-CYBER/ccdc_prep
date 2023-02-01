@@ -1,0 +1,11 @@
+
+Some things to look for (from last year's Web Admin runbook)
+
+1. Assets List
+  - Look over each box and find any unregistered web servers
+  - Nmap subnet and look for 80 or 443
+    - Web servers not registered need to be deleted or killed
+    
+2. Remove users from OpenGTS and Gitea
+3. Configure modsecurity on OpenGTS
+4. Set up OpenGTS config (w/ steps in other doc)
