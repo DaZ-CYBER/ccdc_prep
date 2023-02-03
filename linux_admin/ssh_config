@@ -144,3 +144,17 @@ SUDOERS CHECK
     - # su
   - This will require the root password, which should already be configured to be extremely difficult to crack.
   
+IMPORTANT (Stated above)
+
+- PasswordAuthentication NEEDS to be kept ON for Scoreboard checks
+  - TCPForwarding changed to NO
+  - Gateway Ports changed to NO
+  (This is very important, these settings will prevent red team from having easy tunnel methods into an SSH shell)
+  
+SSH HIDDEN CONNECTIONS
+
+- If a user is able to connect to SSH with a user given the above configurations are not met, the following can happen:
+  - They obviously have a shell
+  - ps -aux or gnome-system monitor will not detect the shell session
+    - For this, use the command: # netstat -vatupn
+    - Ensure there are not ports
