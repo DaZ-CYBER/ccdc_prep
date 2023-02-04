@@ -1,0 +1,10 @@
+NGINX Installation
+
+- # apt-get install nginx -y
+- Ensure that apache2 or other programs are not running
+  - Ex: 
+    # netstat -vatunp
+    # systemctl stop apache2
+    # systemctl start nginx
+    - debug based off result (if needed)
+ 
